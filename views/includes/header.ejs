@@ -1,0 +1,46 @@
+<!-- views/includes/header.ejs -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Shop</title>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pfEiy6nQa8EL0ue4AzbN2Nu4Lk7G7QXQZnKQGZ5tGkFvmJU7FOnvy0iDGZ5BdQZz2C2TjV.SK82m3k3SrvxPdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <a href="/" class="logo animate__animated animate__fadeInLeft">
+                <img src="/images/logo.png" alt="Pizza Shop Logo">
+            </a>
+            <!-- Menu Toggle (For Mobile) -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li class="nav-item animate__animated animate__fadeInDown">
+                    <a href="/" class="nav-link"><i class="fas fa-home"></i> Accueil</a>
+                </li>
+                <li class="nav-item animate__animated animate__fadeInDown">
+                    <a href="/menu" class="nav-link"><i class="fas fa-utensils"></i> Menu</a>
+                </li>
+                <li class="nav-item animate__animated animate__fadeInDown">
+                    <a href="/contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+                <li class="nav-item animate__animated animate__fadeInDown">
+                    <a href="/panier" class="nav-link"><i class="fas fa-shopping-cart"></i> Panier</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Optional: Include your main content here -->
+    <script src="/js/navbar.js"></script>
+</body>
+</html>

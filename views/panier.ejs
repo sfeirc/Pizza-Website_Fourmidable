@@ -1,0 +1,43 @@
+<!-- views/panier.ejs -->
+<%- include('includes/header') %>
+<h1>Votre Panier</h1>
+<section id="cart">
+    <% if (panier.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pizza</th>
+                    <th>Taille</th>
+                    <th>Suppléments</th>
+                    <th>Prix</th>
+                    <th>Action</th> <!-- Colonne pour les actions -->
+                </tr>
+            </thead>
+            <tbody>
+                <% panier.forEach((item, index) => { %>
+                    <tr>
+                        <td><%= item.name %></td>
+                        <td><%= item.size %></td>
+                        <td><%= item.toppings %></td>
+                        <td class="item-price" data-base-price="<%= item.price %>"><%= item.price.toFixed(2) %>€</td>
+                        <td>
+                            <button class="remove-button" data-index="<%= index %>">Retirer</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <p>Total : <span id="total-price" data-base-total="<%= panier.reduce((total, item) => total + item.price, 0).toFixed(2) %>"><%= panier.reduce((total, item) => total + item.price, 0).toFixed(2) %>€</span></p>
+        <label for="currency">Devise :</label>
+        <select id="currency">
+            <option value="EUR">Euro (€)</option>
+            <option value="USD">Dollar ($)</option>
+            <!-- Autres devises -->
+        </select>
+        <button id="order-button">commandes</button>
+    <% } else { %>
+        <p>Votre panier est vide.</p>
+    <% } %>
+</section>
+<script src="/js/panier.js"></script>
+<%- include('includes/footer') %>

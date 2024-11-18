@@ -1,0 +1,14 @@
+<!-- views/menu.ejs -->
+<%- include('includes/header') %>
+<h1>Notre Menu</h1>
+<section id="pizza-menu">
+    <% pizzas.forEach(pizza => { %>
+        <div class="pizza-item">
+            <h2><%= pizza.name %></h2>
+            <img src="/images/<%= pizza.image %>" alt="<%= pizza.name %>">
+            <p>Prix : <%= pizza.base_price.toFixed(2) %>€</p>
+            <button onclick="location.href='/pizza/<%= pizza.id %>'">Choisir</button>
+        </div>
+    <% }) %>
+</section>
+<%- include('includes/footer') %>

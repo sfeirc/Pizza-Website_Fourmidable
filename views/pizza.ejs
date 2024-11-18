@@ -1,0 +1,69 @@
+<!-- views/pizza.ejs -->
+<%- include('includes/header') %>
+<h1 class="animate__animated animate__fadeInUp">Personnalisez votre pizza</h1>
+<section id="customization" class="animate__animated animate__fadeInUp">
+    <div id="pizza-details">
+        <h2 id="pizza-name"><%= pizza.name %></h2>
+        <img src="/images/<%= pizza.image %>" alt="<%= pizza.name %>">
+    </div>
+    <form id="customization-form">
+        <input type="hidden" id="pizza-id" value="<%= pizza.id %>">
+        
+        <div class="form-group">
+            <label for="size">Taille :</label>
+            <select id="size" class="animate__animated animate__fadeIn">
+                <option value="small">Petite</option>
+                <option value="medium">Moyenne</option>
+                <option value="large">Grande</option>
+            </select>
+        </div>
+        
+        <fieldset class="form-group">
+            <legend>Suppléments :</legend>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="toppings" value="Olives">
+                    <span class="checkmark"></span>
+                    Olives
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="toppings" value="Fromage supplémentaire">
+                    <span class="checkmark"></span>
+                    Fromage supplémentaire
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="toppings" value="Pepperoni">
+                    <span class="checkmark"></span>
+                    Pepperoni
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="toppings" value="Champignons">
+                    <span class="checkmark"></span>
+                    Champignons
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="toppings" value="Poivrons">
+                    <span class="checkmark"></span>
+                    Poivrons
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="toppings" value="Ananas">
+                    <span class="checkmark"></span>
+                    Ananas
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="toppings" value="Jambon">
+                    <span class="checkmark"></span>
+                    Jambon
+                </label>
+                <!-- Autres suppléments -->
+            </div>
+        </fieldset>
+        
+        <p class="price">Prix : <span id="price"><%= pizza.base_price.toFixed(2) %>€</span></p>
+        <button type="submit" class="btn-submit animate__animated animate__pulse">Ajouter au panier</button>
+    </form>
+</section>
+<script src="/js/pizza.js"></script>
+<%- include('includes/footer') %>
+
