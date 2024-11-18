@@ -1,6 +1,6 @@
 # Pizza Shop
 
-Bienvenue dans **Pizza Shop**, une application web complète pour la gestion des commandes de pizzas. Construite avec Node.js, Express et MySQL, cette application permet aux utilisateurs d'ajouter des pizzas à leur panier, de personnaliser leurs choix et de finaliser leurs commandes de manière sécurisée.
+Bienvenue dans **Pizza Shop**, une application web complète pour la gestion des commandes de pizzas. Construite avec **Node.js**, **Express** et **MySQL**, cette application permet aux utilisateurs d'ajouter des pizzas à leur panier, de personnaliser leurs choix et de finaliser leurs commandes de manière sécurisée.
 
 ## Table des Matières
 
@@ -41,11 +41,111 @@ Bienvenue dans **Pizza Shop**, une application web complète pour la gestion des
 
 ### Prérequis
 
-Assurez-vous d'avoir les éléments suivants installés sur votre machine :
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-- [Node.js](https://nodejs.org/) (v14 ou supérieure)
-- [npm](https://www.npmjs.com/) (v6 ou supérieure)
-- [MySQL](https://www.mysql.com/) (v5.7 ou supérieure)
+- **[Node.js](https://nodejs.org/)** (v14 ou supérieure)
+- **[npm](https://www.npmjs.com/)** (v6 ou supérieure)
+- **[MySQL](https://www.mysql.com/)** (v5.7 ou supérieure)
+
+#### Installation de Node.js et npm
+
+**Sur Linux (Ubuntu/Debian) :**
+
+1. **Mettre à jour le gestionnaire de paquets :**
+
+   ```bash
+   sudo apt update
+   ```
+
+2. **Installer Node.js et npm via le gestionnaire de paquets NodeSource :**
+
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+   sudo apt-get install -y nodejs
+   ```
+
+   *Remarque : Remplacez `16.x` par la version souhaitée si nécessaire.*
+
+3. **Vérifier l'installation :**
+
+   ```bash
+   node -v
+   npm -v
+   ```
+
+**Sur macOS :**
+
+1. **Utiliser [Homebrew](https://brew.sh/) :**
+
+   ```bash
+   brew update
+   brew install node
+   ```
+
+2. **Vérifier l'installation :**
+
+   ```bash
+   node -v
+   npm -v
+   ```
+
+**Sur Windows :**
+
+1. **Télécharger l'installateur** depuis le [site officiel de Node.js](https://nodejs.org/) et suivre les instructions d'installation.
+2. **Vérifier l'installation** en ouvrant l'invite de commandes et en exécutant :
+
+   ```cmd
+   node -v
+   npm -v
+   ```
+
+#### Installation de MySQL
+
+**Sur Linux (Ubuntu/Debian) :**
+
+1. **Installer MySQL :**
+
+   ```bash
+   sudo apt update
+   sudo apt install mysql-server
+   ```
+
+2. **Sécuriser l'installation :**
+
+   ```bash
+   sudo mysql_secure_installation
+   ```
+
+3. **Vérifier le statut de MySQL :**
+
+   ```bash
+   sudo systemctl status mysql
+   ```
+
+**Sur macOS :**
+
+1. **Utiliser Homebrew :**
+
+   ```bash
+   brew install mysql
+   ```
+
+2. **Démarrer MySQL :**
+
+   ```bash
+   brew services start mysql
+   ```
+
+3. **Sécuriser l'installation :**
+
+   ```bash
+   mysql_secure_installation
+   ```
+
+**Sur Windows :**
+
+1. **Télécharger l'installateur** depuis le [site officiel de MySQL](https://dev.mysql.com/downloads/installer/) et suivre les instructions d'installation.
+2. **Configurer MySQL** en suivant les étapes de l'installation.
 
 ### Étapes d'Installation
 
@@ -61,6 +161,12 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
    ```bash
    npm install
    ```
+
+   *Cette commande installera toutes les dépendances listées dans le fichier 
+
+package.json
+
+, y compris Express.*
 
 3. **Configurer la Base de Données**
 
@@ -102,7 +208,7 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 4. **Configurer les Variables d'Environnement**
 
-   - Créez un fichier `.env` à la racine du projet :
+   - **Créer un fichier `.env`** à la racine du projet :
 
      ```env
      DB_HOST=localhost
@@ -110,7 +216,10 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
      DB_PASSWORD=clovis
      DB_NAME=pizza_shop
      PORT=3000
+     SESSION_SECRET=your_secret_key
      ```
+
+     *Assurez-vous de remplacer `your_secret_key` par une clé secrète sécurisée.*
 
    - **Ajouter `.env` au `.gitignore`**
 
@@ -125,6 +234,8 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 5. **Importer les Jeux de Données**
 
    Pour faciliter le démarrage, vous pouvez importer les jeux de données fournis dans la section Jeux de Données.
+
+   - **Lancer MySQL** et exécuter les scripts SQL présents dans le fichier `data.sql` (s'il existe) ou copier-coller les commandes fournies.
 
 6. **Démarrer le Serveur**
 
@@ -180,6 +291,7 @@ Pour tester l'application, vous pouvez utiliser les jeux de données suivants. I
 ### 1. **Insertion des Pizzas Disponibles**
 
 ```sql
+-- Exemple d'insertion de commandes initiales (si applicable)
 INSERT INTO commandes (total_price, order_date)
 VALUES ('0.00', '2024-01-01 00:00:00');
 ```
@@ -282,14 +394,6 @@ Assurez-vous de suivre les bonnes pratiques de développement et d'écrire des t
 ## Licence
 
 Ce projet est sous licence MIT.
-
-## Contact
-
-Pour toute question ou suggestion, veuillez contacter :
-
-- **Nom** : Votre Nom
-- **Email** : votre.email@example.com
-- **LinkedIn** : [Votre Profil LinkedIn](https://www.linkedin.com/in/votre-profil)
 
 ---
 
